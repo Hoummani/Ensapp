@@ -19,7 +19,7 @@
       <ion-label>Search :</ion-label>
       <ion-input type="text" [(ngModel)]="searchWord"></ion-input>
     </ion-item>
-    <button ion-button="" block="" color="secondary" (click)="onSearch()">Search</button>
+    <button ion-button="" block="" color="primary" (click)="onSearch()">Search</button>
   </div>
   <ion-card *ngFor="let item of images?.hits" >
     <ion-item>

@@ -60,6 +60,7 @@ export class GalleryPage {
       loading.dismiss();
     },
     err=>{
+      loading.dismiss();
       console.log(err);
     });
 
