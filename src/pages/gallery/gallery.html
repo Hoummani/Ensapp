@@ -5,11 +5,58 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title>gallery</ion-title>
+  <ion-navbar color="danger">
+    <ion-title>Gallery</ion-title>
+    <button ion-button="" menuToggle="">
+      <ion-icon name="menu"></ion-icon>
+    </button>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <div padding="">
+    <ion-item>
+      <ion-label>Search :</ion-label>
+      <ion-input type="text" [(ngModel)]="searchWord"></ion-input>
+    </ion-item>
+    <button ion-button="" block="" color="secondary" (click)="onSearch()">Search</button>
+  </div>
+  <ion-card *ngFor="let item of images?.hits" >
+    <ion-item>
+      <ion-avatar item-start="">
+        <img src="{{item.userImageURL}}"/>
+      </ion-avatar>
+      <h2>{{item.user}}</h2>
+      <p>{{item.user_id}}</p>
+    </ion-item>
+    <img src="{{item.previewURL}}" (click)="onDetaill(item)"/>
+    <ion-card-content padding="">
+      <p>Tags : <strong>{{item.tags}}</strong></p>
+      <p>Height : <strong>{{item.imageHeight}}</strong></p>
+      <p>Width : <strong>{{item.imageWidth}}</strong></p>
+    </ion-card-content>
+    <ion-row>
+        <ion-col>
+          <button ion-button icon-start clear small>
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>{{item.likes}} Likes</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-start clear small>
+            <ion-icon name="text"></ion-icon>
+            <div>{{item.comments}} Comments</div>
+          </button>
+        </ion-col>
+        <ion-col align-self-center text-center>
+          <ion-note>
+            {{item.favorites}} Favorites
+          </ion-note>
+        </ion-col>
+      </ion-row>
+  </ion-card>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 
 </ion-content>
