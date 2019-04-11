@@ -26,7 +26,9 @@ export class PlacesPage {
 
 
   ionViewWillEnter(){
-   this.places=this.placesService.getAllPlaces();
+   this.placesService.getAllPlaces().then(data=>{
+     this.places=data;
+   });
   }
 
   ionViewDidLoad() {

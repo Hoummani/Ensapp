@@ -17,16 +17,16 @@
 
   <form #f="ngForm" (ngSubmit)="onAddPace(f.value)" >
     <ion-item>
-      <ion-input type="text" name="title" ngModel required="" palceholder="Title"></ion-input>
+      <ion-input type="text" name="title" ngModel required="" placeholder="Title"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="text" name="country" ngModel required="" palceholder="Country"></ion-input>
+      <ion-input type="text" name="country" ngModel required="" placeholder="Country"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="text" name="city" ngModel required="" palceholder="City"></ion-input>
+      <ion-input type="text" name="city" ngModel required="" placeholder="City"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="text" name="keywords" ngModel required="" palceholder="KeyWords"></ion-input>
+      <ion-input type="text" name="keywords" ngModel required="" placeholder="KeyWords"></ion-input>
     </ion-item>
     <button ion-button="" block="" type="submit" [disabled]="!f.valid">Add</button>
   </form>

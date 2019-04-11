@@ -15,6 +15,11 @@ import { DetailImagePage } from '../pages/detail-image/detail-image';
 import { PlacesService } from '../services/places.service';
 import { NewPlacePage } from '../pages/new-place/new-place';
 
+
+
+import {IonicStorageModule} from '@ionic/storage';
+import { Geolocation } from '@ionic-native/geolocation';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -28,7 +33,11 @@ import { NewPlacePage } from '../pages/new-place/new-place';
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot({
+      name:'ensappv3Db',
+      driverOrder:['indexeddb','sqlite','websql']
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,6 +53,7 @@ import { NewPlacePage } from '../pages/new-place/new-place';
     StatusBar,
     SplashScreen,
     PlacesService,
+    Geolocation,
     GalleryService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
