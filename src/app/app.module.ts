@@ -12,6 +12,8 @@ import { PlacesPage } from '../pages/places/places';
 import { MeteoPage } from '../pages/meteo/meteo';
 import { GalleryService } from '../services/gallery.service';
 import { DetailImagePage } from '../pages/detail-image/detail-image';
+import { PlacesService } from '../services/places.service';
+import { NewPlacePage } from '../pages/new-place/new-place';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { DetailImagePage } from '../pages/detail-image/detail-image';
     HomePage,
     GalleryPage,
     PlacesPage,
+    NewPlacePage,
     DetailImagePage,
     MeteoPage
   ],
@@ -33,12 +36,14 @@ import { DetailImagePage } from '../pages/detail-image/detail-image';
     HomePage,
     GalleryPage,
     PlacesPage,
+    NewPlacePage,
     DetailImagePage,
     MeteoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    PlacesService,
     GalleryService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
