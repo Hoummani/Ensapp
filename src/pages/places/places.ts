@@ -1,14 +1,22 @@
-import { Component } from '@angular/core';
+import { Component,NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Place } from '../../models/place.model';
 import { PlacesService } from '../../services/places.service';
 import { NewPlacePage } from '../new-place/new-place';
+import { DetailPlacePage } from '../detail-place/detail-place';
 
 /**
  * Generated class for the PlacesPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
+ */
+
+
+
+ /*
+
+
  */
 
 @IonicPage()
@@ -38,6 +46,11 @@ export class PlacesPage {
 
   onNewPlace(){
     this.navCtrl.push(NewPlacePage);
+  }
+
+
+  onDetailPlace(item){
+    this.navCtrl.push(DetailPlacePage,{place:item});
   }
 
 }

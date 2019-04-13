@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -20,12 +21,15 @@ import { NewPlacePage } from '../pages/new-place/new-place';
 import {IonicStorageModule} from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation';
 
+import { DetailPlacePage } from '../pages/detail-place/detail-place';
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     GalleryPage,
     PlacesPage,
+    DetailPlacePage,
     NewPlacePage,
     DetailImagePage,
     MeteoPage
@@ -37,7 +41,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     IonicStorageModule.forRoot({
       name:'ensappv3Db',
       driverOrder:['indexeddb','sqlite','websql']
-    })
+    }),
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -46,6 +51,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     GalleryPage,
     PlacesPage,
     NewPlacePage,
+    DetailPlacePage,
     DetailImagePage,
     MeteoPage
   ],
