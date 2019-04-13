@@ -16,7 +16,7 @@ import { DetailImagePage } from '../pages/detail-image/detail-image';
 import { PlacesService } from '../services/places.service';
 import { NewPlacePage } from '../pages/new-place/new-place';
 
-
+import {Camera} from '@ionic-native/camera';
 
 import {IonicStorageModule} from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation';
@@ -59,6 +59,7 @@ import { DetailPlacePage } from '../pages/detail-place/detail-place';
     StatusBar,
     SplashScreen,
     PlacesService,
+    Camera,
     Geolocation,
     GalleryService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

@@ -1,9 +1,10 @@
 import { Place } from './../../models/place.model';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, ViewController, AlertController} from 'ionic-angular';
 
 
 import { GoogleMap, GoogleMapsEvent } from '@ionic-native/google-maps';
+import { CameraOptions, Camera } from '@ionic-native/camera';
 
 
 /**
@@ -24,7 +25,11 @@ export class DetailPlacePage {
 
   map:GoogleMap;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public platform:Platform) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public platform:Platform,
+    private viewCtrl:ViewController,
+    private camera:Camera,
+    private alertCtrl:AlertController,
+    ) {
     this.place=this.navParams.get('place');
     this.platform.ready().then(()=>{
       this.loadMap();
@@ -62,6 +67,56 @@ export class DetailPlacePage {
     this.map.on(GoogleMapsEvent.MAP_READY).subscribe(()=>{
       console.log('Ready !');
     });
+  }
+
+
+  onTakePicture(){
+
+    const options1: CameraOptions = {
+      quality: 50,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      sourceType:this.camera.PictureSourceType.CAMERA,
+      allowEdit:true,
+      targetWidth:320,
+      targetHeight:240
+      };
+      const options2: CameraOptions = {
+      quality: 50,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      sourceType:this.camera.PictureSourceType.PHOTOLIBRARY,
+      allowEdit:true,
+      targetWidth:320,
+      targetHeight:240
+      };
+      let alert=this.alertCtrl.create({
+        title:'Source',
+        subTitle:'What soucres ?',
+        buttons:[
+        {
+          text:'Camera', role:'camera',
+          handler:()=>{
+            this.takePicture(options1)
+          }
+        },
+        {
+          text:'Library',role:'library',
+          handler:()=>{
+            this.takePicture(options2)
+          }
+        }]
+      })
+      alert.present();
+
+  }
+
+
+
+  takePicture(options){
+    console.log(options);
   }
 
 }
