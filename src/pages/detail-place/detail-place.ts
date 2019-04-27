@@ -5,6 +5,8 @@ import { IonicPage, NavController, NavParams, Platform, ViewController, AlertCon
 
 import { GoogleMap, GoogleMapsEvent } from '@ionic-native/google-maps';
 import { CameraOptions, Camera } from '@ionic-native/camera';
+import { LocalServices } from '../../services/localServices.service';
+import { toBase64String } from '@angular/compiler/src/output/source_map';
 
 
 /**
@@ -22,6 +24,7 @@ import { CameraOptions, Camera } from '@ionic-native/camera';
 export class DetailPlacePage {
 
   public place:Place;
+  photo:string;
 
   map:GoogleMap;
 
@@ -29,6 +32,7 @@ export class DetailPlacePage {
     private viewCtrl:ViewController,
     private camera:Camera,
     private alertCtrl:AlertController,
+    private locServices:LocalServices
     ) {
     this.place=this.navParams.get('place');
     this.platform.ready().then(()=>{
@@ -116,7 +120,16 @@ export class DetailPlacePage {
 
 
   takePicture(options){
-    console.log(options);
+    this.camera.getPicture(options).then(
+      data=>{
+        this.photo='data:image/jpeg;base64,'+data;
+        this.locServices.addNewPhoto(this.photo,this.place.timestamp);
+      }
+    ).catch(
+      error=>{
+        console.log(error);
+      }
+    );
   }
 
 }

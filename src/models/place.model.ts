@@ -3,6 +3,7 @@ export class Place{
   title:string;
   country?:string;
   city?:string;
+  photos?:any;
   timestamp?:number;
   keywords?:string;
   location?:{

@@ -30,6 +30,9 @@
       <p>Latitude :<strong>{{place.location.latitude}}</strong></p>
       <p>Date :<strong>{{place.timestamp| date:"dd/MM-HH:mm"}}</strong></p>
     </ion-card-content>
+    <div>
+      <img src="{{photo}}"/>
+    </div>
     <ion-card-content>
       <!--<img class="myMap" src="assets/imgs/elections5.jpeg"/>-->
       <div id="map" #map></div>

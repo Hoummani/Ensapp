@@ -10,7 +10,7 @@ export class HomePage {
   ensaContact={
     name:'Ensa Safi',
     email:'ensa.safi@gmail.com',
-    photo:'assets/imgs/elections5.jpeg'
+    photo:'assets/imgs/ensas.png'
   };
 
   constructor(public navCtrl: NavController) {
