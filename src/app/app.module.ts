@@ -16,6 +16,8 @@ import { DetailImagePage } from '../pages/detail-image/detail-image';
 import { PlacesService } from '../services/places.service';
 import { NewPlacePage } from '../pages/new-place/new-place';
 
+import { GooglePlus } from '@ionic-native/google-plus';
+
 import {Camera} from '@ionic-native/camera';
 
 import {IonicStorageModule} from '@ionic/storage';
@@ -58,6 +60,7 @@ import { DetailPlacePage } from '../pages/detail-place/detail-place';
   providers: [
     StatusBar,
     SplashScreen,
+
     PlacesService,
     Camera,
     Geolocation,

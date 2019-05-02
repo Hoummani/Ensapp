@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+
+
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -21,8 +24,27 @@ export class HomePage {
     console.log('Login with facebook !');
   }
 
-  onLoginWithGoogle(){
-    console.log('Login with google !');
+  onLoginWithGoogle(): Promise<any>{
+
+    //return new Promise((resolve, reject) => {
+      /*this.googlePlus.login({
+          'scopes': 'profile',
+          'webClientId': 'YOUR_APP_ID'
+      }).then(res => {
+
+      // call your backend api here
+            resolve(res);
+          },err => {
+            this.helper.showError(err);
+              reject(err);
+          });
+      }).catch(err => {
+          Console.log(err);
+      });*/
+      return new Promise((resolve,reject)=>{
+
+      })
+
   }
 
 }
