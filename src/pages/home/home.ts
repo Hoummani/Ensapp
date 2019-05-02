@@ -17,4 +17,12 @@ export class HomePage {
 
   }
 
+  onLoginWithFacebook(){
+    console.log('Login with facebook !');
+  }
+
+  onLoginWithGoogle(){
+    console.log('Login with google !');
+  }
+
 }

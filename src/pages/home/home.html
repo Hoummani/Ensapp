@@ -19,5 +19,29 @@
       </div>
       <img src="{{ensaContact.photo}}"/>
     </ion-card-content>
+
+    <ion-card-content padding="">
+
+      <div>
+        <button ion-button icon-start (click)="onLoginWithGoogle()">
+          <ion-icon name="logo-googleplus"></ion-icon>
+          Login with Google
+        </button>
+      </div>
+
+
+
+
+
+
+    <div>
+      <button ion-button icon-end (click)="onLoginWithFacebook()">
+        Login with Facebook
+        <ion-icon name="logo-facebook"></ion-icon>
+      </button>
+    </div>
+
+    </ion-card-content>
+
   </ion-card>
 </ion-content>
